@@ -7,25 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Tjena</h1>
-    
+    <h1>Var hälsad, vänligen gissa på ett tal</h1>
+    <input type="text" name"guess">
+    <p></p>
+
     <script>
-        let num = 5;
-        let guess = 0;
-        while(guess != num) {
-            guess = prompt('Gissa på ett tal: ');
+        let num = Math.round(Math.round()*10);
+
+        let el =document.querySelector('input');
         
-            if (guess == num) {
-                alert('Du gissade rätt');
+        let el = document.querySelector('p');
+        
+        let guesses = 0;
+        
+        el.addEventListener('change', function(){
+            guesses += 1;
+            if (elvalue == num) {
+                p.textContent = 'Du gissade rätt på enbart' + guesses + 'gissningar';
             } else if (guess > num) {
-                alert('Gissningen är för stor');
+                p.textContent = 'Gissningen är för stor';
             } else if (guess < num) {
-                alert('Gissningen är för liten');
+                p.textContent = 'Gissningen är för liten';
             } else {
-                alert('Någonting gick snett');
+                p.textContent = 'Någonting gick snett';
             }
-            
-        }
+        });
     </script>
     </body>
     </html>
