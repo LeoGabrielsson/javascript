@@ -3,34 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <title>Document</title>
 </head>
 <body>
     <h1>Var hälsad, vänligen gissa på ett tal</h1>
-    <input type="text" name"guess">
+    <input type="text" name="guess">
     <p></p>
 
     <script>
-        let num = Math.round(Math.round()*10);
+        let num = Math.round(Math.random() * 10);
 
-        let el =document.querySelector('input');
+        let el = document.querySelector('input');
         
-        let el = document.querySelector('p');
+        let p = document.querySelector('p');
         
         let guesses = 0;
-        
+
         el.addEventListener('change', function(){
             guesses += 1;
-            if (elvalue == num) {
-                p.textContent = 'Du gissade rätt på enbart' + guesses + 'gissningar';
-            } else if (guess > num) {
+            if (el.value == num) {
+                p.textContent = 'Du gissade rätt på enbart ' + guesses + ' gissningar!';
+            } else if (el.value > num) {
                 p.textContent = 'Gissningen är för stor';
-            } else if (guess < num) {
+            } else if (el.value < num) {
                 p.textContent = 'Gissningen är för liten';
             } else {
                 p.textContent = 'Någonting gick snett';
             }
+            el.value ='';
         });
     </script>
     </body>
